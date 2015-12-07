@@ -1,0 +1,134 @@
+<menu>
+
+    <menuitem label='Cadastros'>
+        <menu>
+            <menuitem label='Contas Bancárias'>
+                <menu>
+                    <menuitem label='Formulário'>
+                        <action>ContabancariaFormView</action>
+                    </menuitem>
+                    <menuitem label='Listagem'>
+                        <action>ContabancariaDataGrid</action>
+                    </menuitem>
+                </menu>
+            </menuitem>
+            <menuitem label='Bancos'>
+                <menu>
+                    <menuitem label='Formulário'>
+                        <action>BancoFormView</action>
+                    </menuitem>
+                    <menuitem label='Listagem'>
+                        <action>BancoDataGrid</action>
+                    </menuitem>
+                </menu>
+            </menuitem>
+            <menuitem label='Tipo Conta Bancária'>
+                <menu>
+                    <menuitem label="Formulário">
+                        <action>TipoContaBancariaFormView</action>
+                    </menuitem>
+                    <menuitem label="Listagem">
+
+                        <action>TipoContaBancariaDataGrid</action>
+                    </menuitem>
+                </menu>
+            </menuitem>
+            <menuitem label="Estados (UF)">
+                <menu>
+                    <menuitem label='Formulário'>
+                        <action>UFFormView</action>
+                    </menuitem>
+                    <menuitem label='Listagem'>
+                        <action>UFDataGrid</action>
+                    </menuitem>
+                </menu>
+            </menuitem>
+            <menuitem label="Cidades">
+                <menu>
+                    <menuitem label='Formulário'>
+                        <action>CidadeFormView</action>
+                    </menuitem>
+                    <menuitem label='Listagem'>
+                        <action>CidadeDataGrid</action>
+                    </menuitem>
+                </menu>
+            </menuitem>
+        </menu>
+    </menuitem>
+
+    <menuitem label='Administration'>
+        <icon>fa:university fa-fw</icon>
+        <menu>
+              <menuitem label='Programs'>
+                  <icon>fa:file-code-o fa-fw</icon>
+                  <action>SystemProgramList</action>
+              </menuitem>
+              <menuitem label='Groups'>
+                  <icon>fa:users fa-fw</icon>
+                  <action>SystemGroupList</action>
+              </menuitem>
+              <menuitem label='Users'>
+                  <icon>fa:user fa-fw</icon>
+                  <action>SystemUserList</action>
+              </menuitem>
+              <menuitem label='SQL Panel'>
+                  <icon>fa:table fa-fw</icon>
+                  <action>SystemSQLPanel</action>
+              </menuitem>
+              <menuitem label='PHP Info'>
+                  <icon>fa:code fa-fw</icon>
+                  <action>SystemPHPInfoView</action>
+              </menuitem>
+        </menu>
+    </menuitem>
+
+    <menuitem label='Logs'>
+        <icon>fa:desktop fa-fw</icon>
+        <menu>
+              <menuitem label='Access Log'>
+                  <icon>fa:key fa-fw</icon>
+                  <action>SystemAccessLogList</action>
+              </menuitem>
+              <menuitem label='Change Log'>
+                  <icon>fa:film fa-fw</icon>
+                  <action>SystemChangeLogView</action>
+              </menuitem>
+              <menuitem label='SQL Log'>
+                  <icon>fa:database fa-fw</icon>
+                  <action>SystemSqlLogList</action>
+              </menuitem>
+        </menu>
+    </menuitem>
+
+
+    <menuitem label='Common pages'>
+        <menu>
+            <menuitem label='Common page 1'>
+                <icon></icon>
+                <action>CommonPage</action>
+            </menuitem>
+            <menuitem label='Common page 2'>
+                <icon></icon>
+                <action>CommonPage</action>
+            </menuitem>
+            <menuitem label='Common page 3'>
+                <icon></icon>
+                <action>CommonPage</action>
+            </menuitem>
+        </menu>
+    </menuitem>
+    
+    <menuitem label='Logout'>
+        <menu>
+              <menuitem label='Profile'>
+                  <icon></icon>
+                  <action>SystemProfileView</action>
+              </menuitem>
+              
+              <menuitem label='Logout'>
+                  <action>LoginForm#method=onLogout#static=1</action>
+                  <icon>fa:sign-out fa-fw</icon>
+              </menuitem>
+        </menu>
+    </menuitem>
+</menu>
