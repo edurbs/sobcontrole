@@ -1,4 +1,14 @@
 <?php
+
+//namespace app\control\base;
+use Adianti\Base\TStandardList;
+use Adianti\Control\TAction;
+use Adianti\Core\AdiantiCoreTranslator;
+use Adianti\Database\TTransaction;
+use Adianti\Widget\Dialog\TAlert;
+use Adianti\Widget\Dialog\TMessage;
+//use Exception;
+
 /**
  * Eduardo Soares
  * Arquivo: TStandardFormListWAM.php

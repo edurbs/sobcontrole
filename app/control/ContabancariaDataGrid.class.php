@@ -1,5 +1,9 @@
 <?php
 use Adianti\Base\TStandardList;
+use Adianti\Control\TAction;
+use Adianti\Widget\Container\TVBox;
+use Adianti\Widget\Datagrid\TDataGridAction;
+use Adianti\Widget\Wrapper\TQuickForm;
 
 class ContabancariaDataGrid extends TStandardListWAM
 {

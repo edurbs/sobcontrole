@@ -35,6 +35,14 @@
                         <icon>fa:flag-o fa-fw</icon>
                         <action>CidadeFormView</action>
                     </menuitem>
+                    <menuitem label="Tipos Logradouros">
+                        <icon>fa:street-view fa-fw</icon>
+                        <action>TipoLogradouroFormView</action>
+                    </menuitem>
+                    <menuitem label="CEP">
+                        <icon>fa:outdent fa-fw</icon>
+                        <action>CepFormView</action>
+                    </menuitem>
                 </menu>
             </menuitem>
         </menu>

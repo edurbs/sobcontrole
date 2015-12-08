@@ -1,7 +1,7 @@
 <?php
 
 
-class TipoContatoFormView extends TStandardFormWAM
+class TipoLogradouroFormView extends TStandardFormWAM
 {
     protected $form;
 
@@ -10,15 +10,15 @@ class TipoContatoFormView extends TStandardFormWAM
         parent::__construct();
 
         parent::setDatabase('sobcontrole');
-        parent::setActiveRecord('tipocontato');
+        parent::setActiveRecord('tipologradouro');
 
-        $this->form = new \Adianti\Widget\Wrapper\TQuickForm('TipoContatoFormView');
+        $this->form = new \Adianti\Widget\Wrapper\TQuickForm('TipoLogradouroFormView');
         $this->form->class = 'tform';
         $this->form->style = 'width: 500px';
 
-        $this->form->setFormTitle('Cadastro Tipos de Contato');
+        $this->form->setFormTitle('Cadastro Tipos de Logradouro');
 
-        $id = new \Adianti\Widget\Form\TEntry('idtipocontato');
+        $id = new \Adianti\Widget\Form\TEntry('idtipologradouro');
         $id->setEditable(FALSE);
         $descricao= new \Adianti\Widget\Form\TEntry('descricao');
         $descricao->addValidation('descricao', new TRequiredValidator);
@@ -28,7 +28,7 @@ class TipoContatoFormView extends TStandardFormWAM
         $this->form->addQuickField('Descrição',$descricao, 100);        
         $this->form->addQuickAction('Salvar',new \Adianti\Control\TAction(array($this,'onSave')),'ico_save.png');
         $this->form->addQuickAction('Novo',new \Adianti\Control\TAction(array($this,'onClear')),'ico_new.png');
-        $this->form->addQuickAction('Listar',new \Adianti\Control\TAction(array('TipoContatoDataGrid','onReload')),'ico_datagrid.png');
+        $this->form->addQuickAction('Listar',new \Adianti\Control\TAction(array('TipoLogradouroDataGrid','onReload')),'ico_datagrid.png');
 
         $vbox = new \Adianti\Widget\Container\TVBox();
         $vbox->add(new \Adianti\Widget\Util\TXMLBreadCrumb('menu.xml',__CLASS__));

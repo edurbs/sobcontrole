@@ -3,11 +3,9 @@
 /*
 
  @todo importar base SQL de CEP
- @todo tipologradouro
- @todo cep
- @todo pessoa
- @todo pessoa
  @todo endereco
+ @todo pessoa
+
 
 
 */

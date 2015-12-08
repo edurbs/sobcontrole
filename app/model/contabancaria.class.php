@@ -41,7 +41,7 @@ class contabancaria extends TRecord
     public function set_banco(banco $obj)
     {
         $this->banco = $obj;
-        $this->banco_idbanco = $obj->idbanco;
+        $this->banco->idbanco = $obj->idbanco;
     }
 
     /**

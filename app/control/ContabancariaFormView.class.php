@@ -1,5 +1,5 @@
 <?php
-
+//namespace app\control;
 
 use Adianti\Database\TTransaction;
 use Adianti\Validator\TRequiredValidator;
@@ -50,7 +50,7 @@ class ContabancariaFormView extends TStandardFormWAM
 
 
         //Entry com botão de busca de cidade
-        $idcidade= new TDBSeekButton('idcidade', 'sobcontrole', $this->form->getName(), 'cidade', 'nome', 'idcidade', 'nomecidade');
+        $idcidade= new TDBSeekButton2('idcidade', 'sobcontrole', $this->form->getName(), 'cidade', 'nome', 'idcidade', 'nomecidade', NULL, 'uf->nome');
         $idcidade->setSize(50);
         //$idcidade->addValidation('cidade', new TRequiredValidator);
         //Entry com resultado da buscade cidade
