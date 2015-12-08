@@ -17,10 +17,9 @@ class BancoFormView extends TStandardFormWAM
         $this->form->style = 'width: 100%';
 
         $this->form->setFormTitle('Cadastro Banco');
-
-        // @todo banco deve ter codigo editável com número do banco
         $id = new \Adianti\Widget\Form\TEntry('idbanco');
-        $id->setEditable(FALSE);
+        $id->addValidation('ID', new TRequiredValidator);
+        //$id->setEditable(FALSE);
 
         $nome= new \Adianti\Widget\Form\TEntry('nome');
         $nome->addValidation('nome', new TRequiredValidator);
@@ -29,8 +28,8 @@ class BancoFormView extends TStandardFormWAM
         $sigla->addValidation('sigla', new TRequiredValidator);
 
 
-        $this->form->addQuickField('ID',$id,100);
-        $this->form->addQuickField('Nome',$nome, 100);
+        $this->form->addQuickField('ID',$id,50);
+        $this->form->addQuickField('Nome',$nome, 250);
         $this->form->addQuickField('Sigla',$sigla, 100);
 
 

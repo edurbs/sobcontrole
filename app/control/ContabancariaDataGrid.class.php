@@ -52,7 +52,7 @@ class ContabancariaDataGrid extends TStandardListWAM
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
 
         $vbox= new TVBox;
-        $vbox->add(new \Adianti\Widget\Util\TXMLBreadCrumb('menu.xml',__CLASS__));
+        $vbox->add(new \Adianti\Widget\Util\TXMLBreadCrumb('menu.xml','ContabancariaFormView'));
         $vbox->add($this->form);
         $vbox->add($this->datagrid);
         $vbox->add($this->pageNavigation);

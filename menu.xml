@@ -1,55 +1,39 @@
 <menu>
-
     <menuitem label='Cadastros'>
+        <icon>fa:file-text-o fa-fw</icon>
         <menu>
+
             <menuitem label='Contas Bancárias'>
-                <menu>
-                    <menuitem label='Formulário'>
-                        <action>ContabancariaFormView</action>
-                    </menuitem>
-                    <menuitem label='Listagem'>
-                        <action>ContabancariaDataGrid</action>
-                    </menuitem>
-                </menu>
+                <icon>fa:credit-card fa-fw</icon>
+                <action>ContabancariaFormView</action>
             </menuitem>
-            <menuitem label='Bancos'>
+
+            <menuitem label="Outros">
+                <icon>fa:ellipsis-h fa-fw</icon>
                 <menu>
-                    <menuitem label='Formulário'>
+                    <menuitem label='Bancos'>
+                        <icon>fa:bank fa-fw</icon>
                         <action>BancoFormView</action>
                     </menuitem>
-                    <menuitem label='Listagem'>
-                        <action>BancoDataGrid</action>
-                    </menuitem>
-                </menu>
-            </menuitem>
-            <menuitem label='Tipo Conta Bancária'>
-                <menu>
-                    <menuitem label="Formulário">
+                    <menuitem label='Tipo Conta Bancária'>
+                        <icon>fa:cc-visa fa-fw</icon>
                         <action>TipoContaBancariaFormView</action>
                     </menuitem>
-                    <menuitem label="Listagem">
-
-                        <action>TipoContaBancariaDataGrid</action>
+                    <menuitem label='Tipo Cargo'>
+                        <icon>fa:quote-left fa-fw</icon>
+                        <action>TipoCargoFormView</action>
                     </menuitem>
-                </menu>
-            </menuitem>
-            <menuitem label="Estados (UF)">
-                <menu>
-                    <menuitem label='Formulário'>
+                    <menuitem label='Tipo Contato'>
+                        <icon>fa:quote-right fa-fw</icon>
+                        <action>TipoContatoFormView</action>
+                    </menuitem>
+                    <menuitem label="Estados (UF)">
+                        <icon>fa:flag fa-fw</icon>
                         <action>UFFormView</action>
                     </menuitem>
-                    <menuitem label='Listagem'>
-                        <action>UFDataGrid</action>
-                    </menuitem>
-                </menu>
-            </menuitem>
-            <menuitem label="Cidades">
-                <menu>
-                    <menuitem label='Formulário'>
+                    <menuitem label="Cidades">
+                        <icon>fa:flag-o fa-fw</icon>
                         <action>CidadeFormView</action>
-                    </menuitem>
-                    <menuitem label='Listagem'>
-                        <action>CidadeDataGrid</action>
                     </menuitem>
                 </menu>
             </menuitem>
@@ -119,13 +103,14 @@
     </menuitem>
     
     <menuitem label='Logout'>
+        <icon>fa:sign-out fa-fw</icon>
         <menu>
-              <menuitem label='Profile'>
-                  <icon></icon>
+              <menuitem label='Perfil'>
+                  <icon>fa:user fa-fw</icon>
                   <action>SystemProfileView</action>
               </menuitem>
               
-              <menuitem label='Logout'>
+              <menuitem label='Sair'>
                   <action>LoginForm#method=onLogout#static=1</action>
                   <icon>fa:sign-out fa-fw</icon>
               </menuitem>

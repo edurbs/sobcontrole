@@ -1,7 +1,7 @@
 <?php
 
 
-class TipoContaBancariaFormView extends TStandardFormWAM
+class TipoContatoFormView extends TStandardFormWAM
 {
     protected $form;
 
@@ -10,23 +10,25 @@ class TipoContaBancariaFormView extends TStandardFormWAM
         parent::__construct();
 
         parent::setDatabase('sobcontrole');
-        parent::setActiveRecord('tipocontabancaria');
+        parent::setActiveRecord('tipocontato');
 
-        $this->form = new \Adianti\Widget\Wrapper\TQuickForm('TipoContaBancariaFormView');
+        $this->form = new \Adianti\Widget\Wrapper\TQuickForm('TipoContatoFormView');
         $this->form->class = 'tform';
         $this->form->style = 'width: 500px';
 
-        $this->form->setFormTitle('Cadastro Tipos de Conta Bancária');
+        $this->form->setFormTitle('Cadastro Tipos de Contato');
 
-        $id = new \Adianti\Widget\Form\TEntry('idtipocontabancaria');
-        $descricao= new \Adianti\Widget\Form\TEntry('descricao');        
+        $id = new \Adianti\Widget\Form\TEntry('idtipocontato');
         $id->setEditable(FALSE);
+        $descricao= new \Adianti\Widget\Form\TEntry('descricao');
+        $descricao->addValidation('descricao', new TRequiredValidator);
+
 
         $this->form->addQuickField('ID',$id,100);
         $this->form->addQuickField('Descrição',$descricao, 100);        
         $this->form->addQuickAction('Salvar',new \Adianti\Control\TAction(array($this,'onSave')),'ico_save.png');
         $this->form->addQuickAction('Novo',new \Adianti\Control\TAction(array($this,'onClear')),'ico_new.png');
-        $this->form->addQuickAction('Listar',new \Adianti\Control\TAction(array('TipoContaBancariaDataGrid','onReload')),'ico_datagrid.png');
+        $this->form->addQuickAction('Listar',new \Adianti\Control\TAction(array('TipoContatoDataGrid','onReload')),'ico_datagrid.png');
 
         $vbox = new \Adianti\Widget\Container\TVBox();
         $vbox->add(new \Adianti\Widget\Util\TXMLBreadCrumb('menu.xml',__CLASS__));

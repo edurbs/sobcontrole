@@ -44,6 +44,7 @@ class CidadeFormView extends TStandardFormWAM
 
 
         $iduf->addValidation('UF', new TRequiredValidator);
+        $nome->addValidation('nome', new TRequiredValidator);
 
         $this->form->addQuickField('ID',$id,100);
         $this->form->addQuickField('Nome',$nome, 100);

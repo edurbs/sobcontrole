@@ -1,27 +1,25 @@
 <?php
 use Adianti\Base\TStandardList;
 
-class BancoDataGrid extends TStandardListWAM
+class UFDataGrid extends TStandardListWAM
 {
     protected $form;
     protected $datagrid;
     protected $pageNavigation;
 
-    /**
-     * BancoDataGrid constructor.
-     */
+
     public function __construct()
     {
         parent::__construct();
-
+        
         parent::setDatabase('sobcontrole');
-        parent::setActiveRecord('banco');
+        parent::setActiveRecord('uf');
         parent::setFilterField('nome');
         parent::setDefaultOrder('nome','asc');
 
         /** @var TQuickForm $this */
-        $this->form = new \Adianti\Widget\Wrapper\TQuickForm('BancoDataGrid');
-        $this->form->setFormTitle('Cadastro Bancos');
+        $this->form = new \Adianti\Widget\Wrapper\TQuickForm('UFDataGrid');
+        $this->form->setFormTitle('Cadastro Estados (UF)');
         $this->form->class='tform';
 
         $nome = new \Adianti\Widget\Form\TEntry('nome');
@@ -35,7 +33,7 @@ class BancoDataGrid extends TStandardListWAM
             'Novo',
             new \Adianti\Control\TAction(
                 array(
-                    'BancoFormView',
+                    'UFFormView',
                     'onClear'
                 )
             ),
@@ -43,16 +41,30 @@ class BancoDataGrid extends TStandardListWAM
         );
 
         $this->form->setData(
-            \Adianti\Registry\TSession::getValue('banco_filtro')
+            \Adianti\Registry\TSession::getValue('uf_filtro')
         );
 
         $this->datagrid = new \Adianti\Widget\Wrapper\TQuickGrid;
         $this->datagrid->style = 'width: 100%';
         $this->datagrid->setHeight(230);
 
-        $this->datagrid->addQuickColumn('ID','idbanco','right',40,new \Adianti\Control\TAction(array($this,'onReload')),array('order','idbanco'));
+        $this->datagrid->addQuickColumn(
+            'UF',
+            'iduf',
+            'right',
+            40,
+            new \Adianti\Control\TAction(
+                array(
+                    $this,
+                    'onReload'
+                )
+            ),
+            array(
+                'order',
+                'iduf'
+            )
+        );
 
-        $this->datagrid->addQuickColumn('Sigla','sigla','right',40,new \Adianti\Control\TAction(array($this,'onReload')),array('order','sigla'));
 
         $this->datagrid->addQuickColumn(
             'Nome',
@@ -75,11 +87,11 @@ class BancoDataGrid extends TStandardListWAM
             'Editar',
             new \Adianti\Widget\Datagrid\TDataGridAction(
                 array(
-                    'BancoFormView',
+                    'UFFormView',
                     'onEdit'
                 )
             ),
-            'idbanco',
+            'iduf',
             'ico_edit.png'
         );
 
@@ -91,7 +103,7 @@ class BancoDataGrid extends TStandardListWAM
                     'onDelete'
                 )
             ),
-            'idbanco',
+            'iduf',
             'ico_delete.png'
         );
 
@@ -102,7 +114,7 @@ class BancoDataGrid extends TStandardListWAM
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
 
         $vbox= new TVBox;
-        $vbox->add(new \Adianti\Widget\Util\TXMLBreadCrumb('menu.xml',__CLASS__));
+        $vbox->add(new \Adianti\Widget\Util\TXMLBreadCrumb('menu.xml','UFFormView'));
         $vbox->add($this->form);
         $vbox->add($this->datagrid);
         $vbox->add($this->pageNavigation);

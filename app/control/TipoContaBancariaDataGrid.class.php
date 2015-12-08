@@ -1,7 +1,7 @@
 <?php
 use Adianti\Base\TStandardList;
 
-class UFDataGrid extends TStandardListWAM
+class TipoContaBancariaDataGrid extends TStandardListWAM
 {
     protected $form;
     protected $datagrid;
@@ -13,17 +13,17 @@ class UFDataGrid extends TStandardListWAM
         parent::__construct();
         
         parent::setDatabase('sobcontrole');
-        parent::setActiveRecord('uf');
-        parent::setFilterField('nome');
-        parent::setDefaultOrder('nome','asc');
+        parent::setActiveRecord('tipocontabancaria');
+        parent::setFilterField('descricao');
+        parent::setDefaultOrder('descricao','asc');
 
         /** @var TQuickForm $this */
-        $this->form = new \Adianti\Widget\Wrapper\TQuickForm('UFDataGrid');
-        $this->form->setFormTitle('Cadastro Estados (UF)');
+        $this->form = new \Adianti\Widget\Wrapper\TQuickForm('TipoContaBancariaDataGrid');
+        $this->form->setFormTitle('Cadastro Tipos de Conta Bancária');
         $this->form->class='tform';
 
-        $nome = new \Adianti\Widget\Form\TEntry('nome');
-        $this->form->addQuickField('Nome: ', $nome, 100);
+        $descricao = new \Adianti\Widget\Form\TEntry('descricao');
+        $this->form->addQuickField('Descrição: ', $descricao, 100);
         $this->form->addQuickAction(
             'Buscar',
             new \Adianti\Control\TAction(array($this, 'onSearch')),
@@ -33,7 +33,7 @@ class UFDataGrid extends TStandardListWAM
             'Novo',
             new \Adianti\Control\TAction(
                 array(
-                    'UFFormView',
+                    'TipoContaBancariaFormView',
                     'onClear'
                 )
             ),
@@ -41,7 +41,7 @@ class UFDataGrid extends TStandardListWAM
         );
 
         $this->form->setData(
-            \Adianti\Registry\TSession::getValue('uf_filtro')
+            \Adianti\Registry\TSession::getValue('tipocontabancaria_filtro')
         );
 
         $this->datagrid = new \Adianti\Widget\Wrapper\TQuickGrid;
@@ -49,8 +49,8 @@ class UFDataGrid extends TStandardListWAM
         $this->datagrid->setHeight(230);
 
         $this->datagrid->addQuickColumn(
-            'UF',
-            'iduf',
+            'ID',
+            'idtipocontabancaria',
             'right',
             40,
             new \Adianti\Control\TAction(
@@ -61,14 +61,14 @@ class UFDataGrid extends TStandardListWAM
             ),
             array(
                 'order',
-                'iduf'
+                'idtipocontabancaria'
             )
         );
 
 
         $this->datagrid->addQuickColumn(
-            'Nome',
-            'nome',
+            'Descrição',
+            'descricao',
             'right',
             40,
             new \Adianti\Control\TAction(
@@ -79,7 +79,7 @@ class UFDataGrid extends TStandardListWAM
             ),
             array(
                 'order',
-                'nome'
+                'descricao'
             )
         );
 
@@ -87,11 +87,11 @@ class UFDataGrid extends TStandardListWAM
             'Editar',
             new \Adianti\Widget\Datagrid\TDataGridAction(
                 array(
-                    'UFFormView',
+                    'TipoContaBancariaFormView',
                     'onEdit'
                 )
             ),
-            'iduf',
+            'idtipocontabancaria',
             'ico_edit.png'
         );
 
@@ -103,7 +103,7 @@ class UFDataGrid extends TStandardListWAM
                     'onDelete'
                 )
             ),
-            'iduf',
+            'idtipocontabancaria',
             'ico_delete.png'
         );
 
@@ -114,7 +114,7 @@ class UFDataGrid extends TStandardListWAM
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
 
         $vbox= new TVBox;
-        $vbox->add(new \Adianti\Widget\Util\TXMLBreadCrumb('menu.xml',__CLASS__));
+        $vbox->add(new \Adianti\Widget\Util\TXMLBreadCrumb('menu.xml','TipoContaBancariaFormView'));
         $vbox->add($this->form);
         $vbox->add($this->datagrid);
         $vbox->add($this->pageNavigation);

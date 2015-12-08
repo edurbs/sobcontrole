@@ -1,7 +1,21 @@
 <?php
+
+/*
+
+ @todo importar base SQL de CEP
+ @todo tipologradouro
+ @todo cep
+ @todo pessoa
+ @todo pessoa
+ @todo endereco
+
+
+*/
+
 require_once 'init.php';
 $theme = 'theme3';
 new TSession;
+
 
 if ( TSession::getValue('logged') )
 {

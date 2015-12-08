@@ -30,7 +30,9 @@ class ContabancariaFormView extends TStandardFormWAM
         $id->setEditable(FALSE);
 
         $agencia= new \Adianti\Widget\Form\TEntry('agencia');
+        $agencia->addValidation('agencia', new TRequiredValidator);
         $conta= new \Adianti\Widget\Form\TEntry('conta');
+        $conta->addValidation('conta', new TRequiredValidator);
 
         $banco_idbanco= new TDBSeekButton('banco_idbanco', 'sobcontrole', $this->form->getName(), 'banco', 'nome', 'banco_idbanco', 'nomebanco');
         $banco_idbanco->setSize(50);

@@ -19,9 +19,9 @@ class UFFormView extends TStandardFormWAM
         $this->form->setFormTitle('Cadastro Estados (UF)');
 
         $id = new \Adianti\Widget\Form\TEntry('iduf');
+        $id->addValidation('UF', new TRequiredValidator);
         $nome= new \Adianti\Widget\Form\TEntry('nome');
-        //$id->setEditable(FALSE);
-
+        $nome->addValidation('nome', new TRequiredValidator);
 
 
         $this->form->addQuickField('UF',$id,100);
