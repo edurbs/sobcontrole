@@ -12,7 +12,7 @@ class ramoatividade extends TRecord
     public function __construct($id=NULL)
     {
         parent::__construct($id);
-        parent::addAttribute('idramoatividade');
+        //parent::addAttribute('idramoatividade');
         parent::addAttribute('descricao');
     }
     

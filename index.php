@@ -2,10 +2,11 @@
 
 /*
 
- @todo importar base SQL de CEP
- @todo endereco
- @todo pessoa
-
+@todo contatos, ramo atividade
+@todo alterar pessoa_has_endereco
+@todo pessoa com contato e endereco (ComplexViews-CustomerForm)
+@todo modificar contabancaria, incluir idpessoa
+@todo cep busca via webservice
 
 
 */

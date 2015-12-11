@@ -3,9 +3,11 @@ class pessoa extends TRecord
 {
     const TABLENAME = 'pessoa';
     const PRIMARYKEY = 'idpessoa';
-    //const IDPOLICY = 'serial';
+    const IDPOLICY = 'serial';
 
     private $ramoatividade;
+    private $enderecos;
+    private $contatos;
     
     /**
      * Constructor method
@@ -37,6 +39,52 @@ class pessoa extends TRecord
     {
         $this->ramoatividade = $obj;
         $this->ramoatividade->idramoatividade = $obj->idramoatividade;
+    }
+
+
+    public function addEndereco(endereco $obj){
+        $this->enderecos[]=$obj;
+    }
+
+    public function getEnderecos(){
+        return $this->enderecos;
+    }
+
+    public function addContato(contato $obj){
+        $this->contatos[]=$obj;
+    }
+
+    public function getContatos(){
+        return $this->contatos;
+    }
+
+    public function clearParts(){
+        $this->enderecos = array();
+        $this->contatos = array();
+    }
+
+    public function load($id)
+    {
+        //$this->enderecos = parent::loadComposite('endereco','idpessoa');
+        $this->contatos = parent::loadComposite('contato','idpessoa',$id);
+
+        return parent::load($id);
+    }
+
+    public function store()
+    {
+        parent::store();
+
+        //parent::saveComposite('endereco','idpessoa',$this->idpessoa,$this->enderecos);
+        parent::saveComposite('contato','idpessoa',$this->idpessoa,$this->contatos);
+    }
+
+    public function delete($id=NULL)
+    {
+        parent::deleteComposite('endereco','idpessoa',$id);
+        parent::deleteComposite('contato','idpessoa',$id);
+
+        parent::delete($id);
     }
 
 }

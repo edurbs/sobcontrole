@@ -35,7 +35,7 @@ class TipoContatoDataGrid extends TStandardListWAM
 
         $this->datagrid->addQuickColumn('ID','idtipocontato','right',40,new \Adianti\Control\TAction(array($this,'onReload')),array('order','idtipocontato'));
         $this->datagrid->addQuickColumn('Descrição','descricao','right',40,new \Adianti\Control\TAction(array($this,'onReload')),array('order','descricao'));
-        $this->datagrid->addQuickAction('Editar',new \Adianti\Widget\Datagrid\TDataGridAction(array('TipoCargoFormView','onEdit')),'idtipocontato','ico_edit.png');
+        $this->datagrid->addQuickAction('Editar',new \Adianti\Widget\Datagrid\TDataGridAction(array('TipoContatoFormView','onEdit')),'idtipocontato','ico_edit.png');
         $this->datagrid->addQuickAction('Excluir',new \Adianti\Widget\Datagrid\TDataGridAction(array($this,'onDelete')),'idtipocontato','ico_delete.png');
 
         $this->datagrid->createModel();

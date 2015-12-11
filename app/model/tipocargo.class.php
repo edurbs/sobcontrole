@@ -12,7 +12,7 @@ class tipocargo extends TRecord
     public function __construct($id=NULL)
     {
         parent::__construct($id);
-        parent::addAttribute('idtipocargo');
+        //parent::addAttribute('idtipocargo');
         parent::addAttribute('descricao');
     }
     

@@ -5,10 +5,11 @@ class endereco extends TRecord
     const PRIMARYKEY = 'idendereco';
     //const IDPOLICY = 'serial';
 
-    private $tipologradouro;
+    //private $tipologradouro;
     //private $cep;
     private $cidade;
     private $uf;
+    private $pessoa;
 
     
     /**
@@ -18,16 +19,17 @@ class endereco extends TRecord
     public function __construct($id=NULL)
     {
         parent::__construct($id);
-        parent::addAttribute('idendereco');
+        //parent::addAttribute('idendereco');
         parent::addAttribute('obs');
-        parent::addAttribute('idtipologradouro'); //FK
+        parent::addAttribute('tipologradouro');
         parent::addAttribute('logradouro');
         parent::addAttribute('numero');
         parent::addAttribute('complemento');
         parent::addAttribute('bairro');
-        parent::addAttribute('cep'); // FK (sem criar entidade)
+        parent::addAttribute('cep');
         parent::addAttribute('idcidade'); //FK
         parent::addAttribute('iduf'); //FK
+        parent::addAttribute('idpessoa'); //FK
     }
 
     public function get_cidade()
@@ -58,18 +60,18 @@ class endereco extends TRecord
         $this->uf->iduf = $obj->iduf;
     }
 
-    public function get_tipologradouro()
+    public function set_pessoa(pessoa $obj)
     {
-        if(empty($this->tipologradouro))
-            $this->tipologradouro = new tipologradouro($this->idtipologradouro);
-
-        return $this->tipologradouro;
+        $this->pessoa = $obj;
+        $this->pessoa->idpessoa = $obj->idpessoa;
     }
 
-    public function set_tipologradouro(tipologradouro $obj)
+    public function get_pessoa()
     {
-        $this->tipologradouro = $obj;
-        $this->tipologradouro->idtipologradouro = $obj->idtipologradouro;
+        if(empty($this->pessoa))
+            $this->pessoa = new pessoa($this->idpessoa);
+
+        return $this->pessoa;
     }
-    
+
 }

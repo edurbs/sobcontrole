@@ -14,7 +14,7 @@ class contabancaria extends TRecord
     public function __construct($id=NULL)
     {
         parent::__construct($id);
-        parent::addAttribute('idcontabancaria');
+        //parent::addAttribute('idcontabancaria');
         parent::addAttribute('agencia');
         parent::addAttribute('conta');
         parent::addAttribute('banco_idbanco'); //FK

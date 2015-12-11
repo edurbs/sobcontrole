@@ -12,7 +12,7 @@ class banco extends TRecord
     public function __construct($id=NULL)
     {
         parent::__construct($id);
-        parent::addAttribute('idbanco');
+        //parent::addAttribute('idbanco');
         parent::addAttribute('sigla');
         parent::addAttribute('nome');        
     }

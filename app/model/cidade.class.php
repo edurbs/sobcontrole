@@ -14,7 +14,7 @@ class cidade extends TRecord
     public function __construct($id=NULL)
     {
         parent::__construct($id);
-        parent::addAttribute('idcidade');
+        //parent::addAttribute('idcidade');
         parent::addAttribute('nome');
         parent::addAttribute('iduf');
     }
@@ -28,7 +28,7 @@ class cidade extends TRecord
     public function get_uf()
     {
         if(empty($this->uf))
-            $this->uf = new UF($this->iduf);
+            $this->uf = new uf($this->iduf);
 
         return $this->uf;
     }
